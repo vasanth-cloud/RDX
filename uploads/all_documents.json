@@ -1,0 +1,962 @@
+[
+  {
+    "id": "manual_001",
+    "document_number": 1,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Standard Startup Procedure for RDX Digital Textile Printer",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "Before starting the machine, ensure that the main power supply is stable and connected through the\napproved power stabilizer . Check that the emergency stop button is released and that no tools, cloth pieces,\nor loose objects are present on the print bed or carriage path.\nTurn on the main power switch and wait for the control panel to initialize. Once the software interface is\nloaded, check the machine status indicators. The air pressure should be within the recommended operating\nrange, and the ink tank levels should be above the minimum level.\nStart the ink circulation system before enabling printhead firing. Allow the system to circulate ink for at\nleast three minutes. After circulation, perform a nozzle test to confirm that all printheads are firing\ncorrectly. If missing lines appear in the nozzle test, perform cleaning before production printing.\nDo not begin printing until the machine status shows Ready.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_002",
+    "document_number": 2,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Standard Shutdown Procedure for RDX Digital Textile Printer",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "At the end of the production shift, stop all active print jobs from the machine software. Move the carriage to\nthe home position using the control panel. Do not manually push the carriage unless instructed by service\npersonnel.\nRun a short ink circulation cycle before shutdown to prevent ink settling inside the lines. After circulation,\nclean the printhead surface using approved lint-free wipes and cleaning solution. Avoid applying excessive\npressure on the printhead nozzle plate.\nCheck the capping station and ensure that the printheads are properly seated. Improper capping may\ncause nozzle drying and print quality problems during the next startup.\nTurn off the print software, then switch off the machine controller . Finally, turn off the main power switch.\nThe machine should not be disconnected from power abruptly unless there is an emergency.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_003",
+    "document_number": 3,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "How to Perform a Printhead Nozzle Test",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "A nozzle test must be performed before starting production and whenever print quality issues appear . Load\nthe test fabric or test sheet on the print bed and ensure it is flat without wrinkles.\nOpen the machine software and select the nozzle test option from the maintenance menu. Choose the\nprinthead group to be tested. Start the test and observe the printed pattern carefully.\nA correct nozzle test should show continuous and evenly spaced lines for each channel. Missing lines,\nbroken lines, or uneven firing indicate nozzle blockage or air bubbles in the ink path.\nIf minor missing lines are visible, perform light cleaning and repeat the nozzle test. If several lines are\nmissing, perform medium cleaning and check ink circulation. Do not perform repeated heavy cleaning\nunnecessarily, as it may waste ink and stress the printhead.\nProduction printing should begin only after the nozzle test is acceptable.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_004",
+    "document_number": 4,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Ink Loading and Ink Tank Handling Instructions",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "Use only approved textile pigment ink recommended for the machine. Before loading ink, confirm the color\nlabel on the ink container and match it with the corresponding ink tank.\nShake the ink container gently before filling. Do not shake aggressively, as this may create foam or air\nbubbles. Open the ink tank cap carefully and fill ink slowly to avoid spillage.\nThe ink level should remain between the minimum and maximum markings on the tank. Operating the\nmachine with very low ink levels may allow air to enter the ink line and cause nozzle dropout.\nAfter filling ink, close the tank cap firmly. Wipe any spilled ink immediately using approved cleaning\nmaterial. Run ink circulation for two to three minutes after refilling.\nNever mix different ink brands or expired ink in the same tank. Mixing incompatible inks may cause\nclogging, sediment formation, or color inconsistency.\n2",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_005",
+    "document_number": 5,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Fabric Loading Guidelines for Flatbed Textile Printing",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "Before loading fabric, make sure the print bed surface is clean and free from dust, dried ink, adhesive\nresidue, and loose threads. The fabric must be properly pre-treated and dried according to production\nrequirements.\nPlace the fabric evenly on the print bed. Smooth the fabric from the center outward to remove wrinkles.\nEnsure that the fabric edges do not interfere with the carriage movement.\nFor stretchable fabrics, avoid excessive pulling because it may distort the print after unloading. Use proper\nadhesive or holding method based on the fabric type.\nSet the correct print origin in the software before starting the job. Confirm that the design placement\nmatches the fabric position. A test print is recommended when using a new fabric type or size.\nDo not print on wet, dusty, or uneven fabric, as this may affect print sharpness and printhead safety.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_006",
+    "document_number": 6,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Adjusting Print Bed Height Before Printing",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "Correct print bed height is important for print quality and printhead safety. Before printing, check the\nthickness of the fabric or garment placed on the bed.\nUse the bed height adjustment controls to set the correct distance between the printhead and the fabric\nsurface. The gap should be close enough for sharp printing but not so close that the fabric touches the\nprinthead.\nIf the bed is too low, the print may appear blurry or misty. If the bed is too high, the fabric may strike the\nprinthead and cause serious damage.\nAfter adjustment, move the carriage slowly across the print area using manual controls and confirm that\nthere is no contact with the fabric. Pay special attention to seams, collars, folded edges, and thick areas.\nDo not leave loose fabric parts raised above the print surface.\n3",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_007",
+    "document_number": 7,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Daily Cleaning Procedure for Textile Printer",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "Daily cleaning must be performed before and after production. Start by cleaning the print bed surface using\na soft cloth. Remove fabric lint, thread pieces, dust, and adhesive residue.\nInspect the carriage path and remove any obstruction. Clean the encoder strip gently using approved\ncleaning solution if dust or ink mist is visible. Do not scratch or bend the encoder strip.\nClean the printhead bottom surface with lint-free wipes and approved solution. Wipe in one direction only.\nAvoid rubbing the nozzle plate repeatedly.\nCheck the capping station, wiper blade, and waste ink tray. Remove dried ink deposits carefully. Make sure\nthe waste ink bottle has enough space and is not overflowing.\nDaily cleaning helps maintain stable print quality and reduces nozzle blockage. Skipping cleaning may cause\nprint defects, carriage movement errors, and unnecessary downtime.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_008",
+    "document_number": 8,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Weekly Maintenance Checklist",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "Weekly maintenance should be performed by a trained operator or maintenance technician. Begin by\nchecking all visible cables, connectors, ink tubes, and air tubes for looseness, leakage, or damage.\nInspect the belt tension and carriage movement. The carriage should move smoothly without unusual\nvibration or sound. Check the linear guide rail and apply approved lubrication if required.\nClean the air filter and inspect the cooling fans. Poor airflow may cause electronic components to overheat\nduring long production runs.\nCheck the ink circulation system for stable flow. Confirm that no bubbles are visible in the ink lines. Inspect\nthe capping station alignment and wiper condition.\nReview the software error log for repeated warnings. Repeated errors should be reported before they\nbecome major failures.\nRecord all weekly maintenance activities in the machine maintenance log.\n4",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_009",
+    "document_number": 9,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Emergency Stop Button Usage and Safety",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "The emergency stop button must be used only when immediate machine stoppage is required. Examples\ninclude fabric collision, carriage obstruction, electrical smell, smoke, abnormal noise, or risk of operator\ninjury.\nPressing the emergency stop button immediately cuts machine motion and stops active operation. After\npressing it, do not restart the machine until the cause of the emergency is identified and corrected.\nTo reset the emergency stop, rotate or release the button as per the machine design. Then restart the\ncontrol system from the panel. Check the software status and clear any active alarms.\nDo not use the emergency stop button as a normal pause or stop control. Frequent unnecessary use may\ninterrupt system processes and cause job failure.\nAll operators must know the location and function of the emergency stop button before using the machine.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_010",
+    "document_number": 10,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Electrical Power Supply Requirements",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "The textile printer must be connected to a stable power source as specified by the manufacturer . A suitable\npower stabilizer or UPS is recommended to protect sensitive electronics from voltage fluctuations.\nBefore installation, verify voltage, phase, grounding, and load capacity. Poor grounding may cause\ncommunication errors, electrical noise, or risk of shock.\nDo not connect heavy external equipment to the same power line used by the printer . Sudden load changes\nmay affect printer stability during operation.\nThe machine should not be switched on and off repeatedly within a short period. Wait at least one minute\nbefore restarting after power-off.\nIf frequent power failure occurs, stop production and safely shut down the machine. Unexpected power loss\nduring printing may result in job failure, fabric wastage, or printhead maintenance issues.\nElectrical work must be handled only by qualified personnel.\n5",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_011",
+    "document_number": 11,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Loading a Print Job in Machine Software",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "Open the machine software and confirm that the printer status is Ready. Import the design file in the\nsupported format. Check the file resolution, dimensions, color profile, and print placement before sending\nthe job.\nSelect the correct machine profile and print mode based on the fabric type and required output quality.\nHigher resolution modes may improve detail but will increase production time.\nSet the print origin according to the fabric position on the bed. Preview the design to confirm that it is\nwithin the printable area.\nBefore printing a new design, perform a small test print or sample print. Confirm color accuracy, sharpness,\nand alignment.\nDo not modify machine parameters randomly during active printing. Changes to speed, pass count, or ink\nlimit should be done only after understanding their effect on output quality.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_012",
+    "document_number": 12,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Selecting the Correct Print Mode",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "Print mode selection affects print speed, ink usage, and output quality. For high-speed bulk production,\nstandard mode can be used when the design does not require very fine detail.\nFor detailed artwork, gradients, skin tones, or premium samples, high-quality mode is recommended. High-\nquality mode uses more passes and may require more production time.\nFor dark fabrics, confirm that the white ink layer and color layer settings are correct. Incorrect white ink\nsettings may result in dull colors or poor opacity.\nBefore confirming a print mode, check fabric type, design complexity, customer quality requirement, and\ndelivery timeline.\nOperators should avoid changing advanced print parameters without approval. Incorrect settings can cause\nbanding, over-inking, color mismatch, or poor wash durability.\nRecord successful print settings for repeat orders.\n6",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_013",
+    "document_number": 13,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Ink Circulation System Overview",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "The ink circulation system helps keep ink moving through the ink lines and prevents settling. This is\nespecially important for white ink and pigment inks, which may contain particles that settle over time.\nThe circulation system should be started before printhead firing. During long idle periods, circulation helps\nmaintain ink consistency and reduces clogging risk.\nCheck the ink lines regularly for air bubbles, leakage, or abnormal flow. Air bubbles may cause missing\nnozzles, unstable printing, or sudden color dropout.\nIf circulation noise becomes abnormal or ink flow appears weak, stop production and inspect the pump,\nfilter , and ink line connections.\nDo not run the circulation system without sufficient ink in the tank. Running with low ink may introduce air\ninto the system.\nFollow the maintenance schedule for filter replacement.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_014",
+    "document_number": 14,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "White Ink Handling and Maintenance",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "White ink requires special attention because it may settle faster than other colors. Before starting\nproduction, ensure that the white ink circulation system has run for the recommended duration.\nGently agitate or circulate white ink according to the machine procedure. Do not allow white ink to remain\nidle for long periods without circulation.\nPerform a nozzle test for white channels before printing on dark garments. Missing white nozzles may\nreduce opacity and affect the final color output.\nIf white ink appears weak, uneven, or grainy, check ink level, circulation flow, filter condition, and nozzle\nstatus.\nDo not mix old and new white ink from different batches unless approved. Always close the ink tank cap\nafter filling to prevent contamination.\nWhite ink maintenance should be recorded daily.\n7",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_015",
+    "document_number": 15,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Print Alignment and Registration Procedure",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "Print alignment must be checked when installing the machine, replacing printheads, changing print modes,\nor observing shadowing in printed output.\nUse the alignment test pattern available in the machine software. Print the test pattern on a stable test\nfabric or sheet. Review horizontal and vertical alignment marks carefully.\nIf the printed lines do not overlap correctly, adjust alignment values in the software. Make small changes\nand repeat the test until the alignment is acceptable.\nIncorrect alignment may cause blurry edges, color shadows, double lines, or reduced image sharpness.\nDo not adjust mechanical parts unless software alignment cannot correct the issue. Mechanical adjustment\nshould be performed only by trained service personnel.\nSave successful alignment settings after completion.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_016",
+    "document_number": 16,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Waste Ink Bottle and Drain System Instructions",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "The waste ink system collects ink discharged during cleaning, purging, and maintenance operations. Check\nthe waste ink bottle level every day before production.\nIf the bottle is nearly full, empty it safely into an approved waste container . Wear gloves while handling\nwaste ink. Avoid spilling waste ink near electrical components or walkways.\nEnsure the waste ink tube is not bent, blocked, or disconnected. A blocked waste ink line may cause\noverflow near the capping station.\nDo not operate heavy cleaning cycles if the waste ink bottle is full. Overflow may damage nearby parts and\ncreate unsafe working conditions.\nDispose of waste ink according to local environmental and company safety procedures.\nRecord waste ink disposal in the maintenance log if required.\n8",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_017",
+    "document_number": 17,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "General Operator Safety Instructions",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "Only trained operators should use the textile printing machine. Before operation, the operator must\nunderstand the control panel, emergency stop button, carriage movement area, and basic maintenance\npoints.\nDo not place hands, tools, or fabric rolls inside the carriage movement area while the machine is active.\nLoose clothing, ID cards, or cables should be kept away from moving parts.\nWear gloves when handling ink, cleaning solution, and waste ink. Use safety glasses if there is a risk of\nsplashing.\nDo not open electrical panels while the machine is powered on. Electrical inspection must be performed\nonly by qualified personnel.\nKeep the machine area clean and dry. Ink spills, fabric waste, and loose wires may cause slipping or tripping\nhazards.\nReport abnormal smell, smoke, sound, or vibration immediately.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_018",
+    "document_number": 18,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Fabric Pre-Treatment Guidelines Before Printing",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "Fabric pre-treatment improves ink bonding, color brightness, and wash durability. The correct pre-\ntreatment method depends on fabric type, ink type, and production requirement.\nBefore printing, ensure that the fabric is clean, dry, and free from oil, dust, and loose fibers. Pre-treated\nfabric must be dried properly before loading onto the machine.\nUneven pre-treatment may cause patchy print output, poor color strength, or inconsistent wash results.\nExcessive pre-treatment may make the fabric stiff or affect hand feel.\nFor dark garments, white ink performance depends strongly on proper pre-treatment. Always test new\nfabric lots before bulk production.\nStore pre-treated garments in a clean and dry area. Do not expose them to dust or moisture before\nprinting.\n9",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_019",
+    "document_number": 19,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Print Quality Inspection After Printing",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "After printing, inspect the output before approving bulk production. Check design placement, color\nconsistency, sharpness, opacity, banding, stains, and missing print areas.\nCompare the print with the approved sample or digital reference. Minor color variation may occur\ndepending on fabric type, pre-treatment, curing, and lighting conditions.\nIf banding appears, perform a nozzle test and check print mode settings. If colors appear dull, check ink\nlevel, white ink layer , curing condition, and fabric pre-treatment.\nDo not continue bulk printing if defects are repeated in multiple pieces. Stop production and identify the\ncause.\nApproved samples and print settings should be stored for repeat orders. Inspection records help reduce\nrework and customer complaints.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "manual_020",
+    "document_number": 20,
+    "dataset": "machine_manuals",
+    "dataset_name": "Synthetic Dataset 1: Machine Manuals",
+    "category": "Textile Printing Machine Manuals",
+    "title": "Basic Curing Instructions for Printed Fabric",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 1- Machine Manuals.pdf",
+    "content": "After printing, the fabric must be cured according to ink and fabric requirements. Curing helps fix the ink\nonto the fabric and improves wash durability.\nUse the recommended temperature, time, and pressure settings for the ink system. Insufficient curing may\ncause poor wash fastness, cracking, or fading. Excessive heat may damage fabric, change hand feel, or\naffect color .\nBefore bulk curing, test one sample and inspect the result. Check whether the print surface is dry, smooth,\nand properly bonded.\nDo not stack freshly printed garments before curing unless the process allows it. Wet ink may transfer to\nother areas and cause stains.\nMaintain curing equipment regularly and verify temperature accuracy. Incorrect curing temperature is a\ncommon reason for print failure.\n10",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_001",
+    "document_number": 1,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Printhead Not Firing During Nozzle Test",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "If one or more printheads are not firing during the nozzle test, first check whether the ink tank has\nsufficient ink. Low ink level may allow air to enter the ink line and cause firing failure.\nNext, inspect the ink line for visible air bubbles. If bubbles are present, run ink circulation for three to five\nminutes and repeat the nozzle test. If the issue continues, perform light cleaning followed by another\nnozzle test.\nCheck whether the printhead cable is properly connected. A loose or damaged cable can prevent the\nprinthead from receiving firing signals. Do not remove or reconnect printhead cables while the machine is\npowered on.\nIf the issue affects only one color channel, check that specific ink path, filter , and damper . If all channels are\nnot firing, check machine status, printhead voltage settings, software connection, and emergency stop\nstatus.\nDo not perform repeated heavy cleaning without identifying the cause. Excessive cleaning may waste ink\nand reduce printhead life.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_002",
+    "document_number": 2,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Horizontal Banding Appears in Print",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "Banding appears as visible horizontal lines or uneven density across the printed image. The most common\ncauses are missing nozzles, incorrect print mode, poor fabric movement, or improper bed height.\nStart by performing a nozzle test. If missing lines are visible, clean the affected printhead and repeat the\ntest. If the nozzle test is correct, check the selected print mode and pass count.\nLow pass settings may increase speed but can make banding more visible. Use a higher quality mode for\ndetailed artwork, gradients, or premium samples.\nCheck whether the fabric is flat and properly held on the print bed. Wrinkles, loose fabric, or height\nvariation can affect ink placement.\nIf banding continues, inspect encoder strip cleanliness and carriage movement. Dust or ink mist on the\nencoder strip may cause position errors.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_003",
+    "document_number": 3,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Ink Leakage Around Printhead Area",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "Ink leakage near the printhead may occur due to loose ink tube connections, damaged dampers, excessive\nink pressure, improper capping, or damaged seals.\nStop printing immediately if ink leakage is observed. Move the carriage to the maintenance position and\nturn off printhead firing. Wipe leaked ink carefully using approved lint-free material.\nInspect the ink tubes and damper connections. Do not pull the tubes forcefully. If a tube is loose, it must be\nsecured before restarting production.\nCheck whether the capping station is overfilled with waste ink. A blocked waste ink path can cause ink to\naccumulate near the printhead.\nIf leakage continues after basic inspection, stop the machine and inform service personnel. Printing with\nleakage may damage the printhead, carriage board, or fabric.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_004",
+    "document_number": 4,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Carriage Movement Error or Abnormal Carriage Stop",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "A carriage movement error can occur when the carriage path is blocked, the encoder strip is dirty, the rail is\ndry, or the motor cannot move smoothly.\nFirst, press stop and check whether any fabric, tool, thread, or object is blocking the carriage path. Remove\nthe obstruction only after the machine has stopped.\nInspect the print bed height. If the fabric is too high, it may touch the printhead or carriage and trigger\nmovement errors.\nClean the encoder strip gently if dust or ink mist is visible. Do not scratch the strip. Check the linear rail and\napply approved lubrication if required.\nRestart the machine and perform a slow manual carriage movement test. If the carriage makes unusual\nnoise or stops again, do not continue production. Report the issue for service inspection.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_005",
+    "document_number": 5,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Encoder Strip Error During Printing",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "The encoder strip helps the machine detect carriage position. If the encoder strip is dirty, scratched, loose,\nor misread by the sensor , the machine may show position errors or print misalignment.\nStop the current print job and move the carriage to the service position. Inspect the encoder strip under\nproper lighting. Look for ink mist, dust, scratches, or oil marks.\nClean the strip using approved solution and a soft lint-free wipe. Wipe gently in one direction. Do not use\nsharp tools or rough cloth.\nAfter cleaning, restart the machine and run a test print. If the same error appears again, check whether the\nstrip is properly seated and whether the encoder sensor is clean.\nA damaged encoder strip should be replaced by trained service personnel.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_006",
+    "document_number": 6,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "White Ink Flow Is Weak or Interrupted",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "White ink may stop flowing properly if it has settled, if the filter is blocked, if air is present in the ink line, or\nif circulation is not working correctly.\nStart by checking the white ink level. Ensure that the tank has enough ink and that the ink has not expired.\nRun the white ink circulation system for five minutes.\nInspect the white ink line for air bubbles or sediment. If bubbles are visible, continue circulation and\nperform a nozzle test. If the white nozzle test is weak, perform light cleaning.\nCheck the white ink filter and damper if flow remains poor . Blocked filters may restrict ink movement and\ncause weak opacity.\nDo not print on dark garments until white ink flow is stable. Poor white ink flow will cause dull colors,\nuneven opacity, and rejected output.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_007",
+    "document_number": 7,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Machine Software Cannot Detect Printer",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "If the software does not detect the printer , first check whether the machine controller is powered on and\nfully initialized. Confirm that the emergency stop button is released.\nCheck the USB, Ethernet, or communication cable based on the machine configuration. The cable should be\nfirmly connected and not damaged.\nRestart the software once. If the printer is still not detected, restart the machine controller and then reopen\nthe software.\nVerify that the correct printer driver or communication profile is selected in the software. If the machine\nuses an IP address, confirm that the computer network settings are correct.\nDo not reinstall software immediately without checking power , cable, driver , and network settings. If\ndetection fails after all checks, report the issue to technical support.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_008",
+    "document_number": 8,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Printed Colors Are Misaligned or Shadowed",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "Print misalignment may appear as color shadow, double image, blurred edges, or poor registration\nbetween white and color layers.\nFirst, confirm that the fabric is not moving during printing. Loose fabric or poor bed adhesion may cause\nimage shift.\nRun the alignment test pattern from the software. If the lines do not overlap properly, adjust the alignment\nvalues in small steps and repeat the test.\nCheck whether the correct print mode and machine profile are selected. Changing print mode without\nalignment verification may cause visible registration differences.\nInspect the encoder strip and carriage movement if misalignment changes randomly between prints.\nMechanical looseness or encoder contamination can cause unstable alignment.\nSave the corrected alignment settings after completing the test.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_009",
+    "document_number": 9,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Low Air Pressure Warning on Machine Panel",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "A low air pressure warning indicates that the machine is not receiving the required air pressure for stable\noperation. Some machine functions may stop until pressure is restored.\nCheck the air compressor and confirm that it is switched on. Verify the pressure gauge reading and\ncompare it with the required operating range.\nInspect air tubes for leakage, bending, loose fittings, or disconnection. Listen for air leakage sounds near\nconnectors and valves.\nDrain water from the air filter if moisture is visible. Excess moisture can affect pneumatic components and\nreduce reliability.\nDo not bypass the air pressure warning. Restart printing only after pressure returns to the acceptable range\nand the warning is cleared.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_010",
+    "document_number": 10,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Fabric Touches Printhead During Printing",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "If fabric touches the printhead, stop the print immediately. Fabric contact may damage the nozzle surface\nand cause print defects.\nCheck whether the fabric was loaded flat. Wrinkles, thick seams, collars, folded edges, or loose fabric parts\nmay rise above the print surface.\nLower the print bed slightly and move the carriage manually across the print area to confirm safe clearance.\nMaintain enough gap between the printhead and the highest fabric point.\nInspect the printhead surface for lint, ink smearing, or physical damage after contact. Perform a nozzle test\nbefore continuing production.\nDo not continue printing if repeated contact occurs. Recheck fabric holding method, bed height, garment\nplacement, and print area clearance.\n5",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_011",
+    "document_number": 11,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Printed Color Does Not Match Approved Sample",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "Color mismatch may occur due to wrong color profile, different fabric type, incorrect ink limit, poor pre-\ntreatment, curing variation, or nozzle issues.\nFirst, compare the current fabric with the approved sample fabric. Different fabric composition or surface\nfinish can change color appearance.\nCheck whether the correct print profile and print mode are selected. Using the wrong profile may cause\ncolor shift or dull output.\nPerform a nozzle test to confirm that all color channels are firing correctly. Missing nozzles may reduce\ncolor strength or alter tone.\nCheck curing temperature and time. Under-curing or over-heating can affect final color and wash\nperformance.\nFor repeat orders, use saved print settings and approved sample references whenever available.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_012",
+    "document_number": 12,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Print Fades or Cracks After Washing",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "If the print fades, cracks, or washes out, curing may be insufficient or incorrect. Curing fixes the ink onto the\nfabric and is critical for durability.\nCheck the curing equipment temperature using an independent temperature measurement method if\navailable. The displayed temperature may not always match actual surface temperature.\nVerify curing time, pressure, and temperature against the ink system recommendation. Insufficient heat or\nshort curing time may result in poor wash fastness.\nCheck whether fabric pre-treatment was applied correctly. Uneven or poor pre-treatment can also reduce\ndurability.\nBefore bulk production, cure and wash-test one sample. Do not approve production until the sample passes\nbasic durability checks.\n6",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_013",
+    "document_number": 13,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Printed Image Appears Blurry",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "Blurry print output can be caused by incorrect bed height, poor artwork resolution, fabric movement,\nprinthead alignment error , or unsuitable print mode.\nCheck the artwork resolution before printing. Low-resolution images may appear soft or pixelated even if\nthe machine is working correctly.\nVerify the bed height. If the gap between the printhead and fabric is too large, ink droplets may spread\nbefore reaching the surface, causing misty or blurry output.\nCheck whether the fabric is flat and firmly held. Movement during printing can reduce sharpness.\nRun print alignment if the blur appears as double edges or color shadow. Select a higher quality print mode\nfor fine text or detailed artwork.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_014",
+    "document_number": 14,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Machine Does Not Start After Power On",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "If the machine does not start, check the main power supply first. Confirm that the power cable is connected\nand the main switch is turned on.\nCheck the emergency stop button. If it is pressed, release it according to the machine design before\nrestarting.\nVerify that the power stabilizer or UPS is switched on and functioning. If there is no display on the control\npanel, inspect the input power and fuse with qualified electrical support.\nDo not open electrical panels without authorization. Electrical inspection must be done by trained\npersonnel.\nIf the control panel turns on but the software does not connect, follow the printer detection\ntroubleshooting procedure.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_015",
+    "document_number": 15,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Emergency Stop Alarm Remains Active",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "7\nIf the emergency stop alarm remains active, first check all emergency stop buttons on the machine. Some\nmachines may have more than one emergency stop location.\nEnsure that each emergency stop button is fully released. Rotate or pull the button as per the machine\ndesign.\nRestart the machine controller after releasing the button. Open the software and check whether the alarm\nhas cleared.\nIf the alarm continues, inspect safety switches, door sensors, and emergency stop wiring. Do not bypass\nsafety circuits to continue production.\nA persistent emergency stop alarm should be handled by service personnel. The machine should not be\noperated until the safety system is working correctly.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_016",
+    "document_number": 16,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Ink Tank Level Warning Appears",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "An ink tank level warning means that the ink level is near or below the minimum operating level. Continuing\nproduction with low ink may introduce air into the ink line.\nPause production and check the physical ink level in the tank. Refill using the correct approved ink for that\ncolor channel.\nAfter refilling, close the tank cap properly and clean any spilled ink. Run ink circulation for two to three\nminutes to stabilize flow.\nPerform a nozzle test before resuming production, especially if the tank was very low.\nIf the warning remains after refilling, check the ink level sensor or software status. Report the issue if the\nsensor reading is incorrect.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_017",
+    "document_number": 17,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Ink Smudges or Spreads on Fabric Surface",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "Ink smudging may occur when the fabric is wet, pre-treatment is excessive, ink limit is too high, curing is\ndelayed, or the printhead touches the fabric.\nCheck whether the fabric is dry before printing. Moisture can cause ink to spread and reduce edge\nsharpness.\nReview the pre-treatment process. Excessive pre-treatment or uneven application can cause patchy\nabsorption and smudging.\nCheck print settings such as ink limit and number of passes. Over-inking may cause wet surface and slow\ndrying.\nInspect bed height and fabric flatness. If the printhead touches the fabric, it can drag wet ink and create\nsmudge marks.\nAllow printed fabric to cure properly before stacking or handling.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_018",
+    "document_number": 18,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Repeated Communication Error Between PC and Printer",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "Repeated communication errors may be caused by loose cables, unstable power , incorrect network settings,\ndriver issues, or electrical noise.\nCheck the communication cable and replace it if damaged. Avoid running communication cables close to\nheavy power cables or high-noise equipment.\nIf the printer uses Ethernet, confirm IP address, subnet, and network adapter settings. Disable unnecessary\nnetwork adapters if they interfere with printer communication.\nRestart the software and controller in the correct order . Power instability may also cause communication\nloss, so verify UPS or stabilizer condition.\nCheck the software log for repeated error codes. If errors occur at the same operation stage, report the\ncode to technical support.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_019",
+    "document_number": 19,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Nozzles Missing After Machine Was Idle",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "If the machine was idle for a long period, nozzles may dry or partially block. This is common when the\nprinthead was not capped properly or ink circulation was not maintained.\nCheck the capping station first. The printhead should be properly seated on the cap when idle.\nRun ink circulation and perform a nozzle test. If only a few lines are missing, perform light cleaning and\nrepeat the test.\nIf many nozzles are missing, allow the printhead to soak using the approved maintenance procedure. Do\nnot scrape the nozzle plate.\nTo prevent drying, follow the shutdown procedure, maintain proper capping, and run regular circulation\nduring long idle periods.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "troubleshooting_020",
+    "document_number": 20,
+    "dataset": "troubleshooting_notes",
+    "dataset_name": "Synthetic Dataset 2: Troubleshooting Notes",
+    "category": "Textile Printing Machine Troubleshooting",
+    "title": "Machine Shows Overheating Warning",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 2- Troubleshooting Notes.pdf",
+    "content": "An overheating warning may appear when electronics, motors, or internal components exceed safe\noperating temperature.\nStop active production and allow the machine to cool. Check whether cooling fans are running and whether\nair vents are blocked by dust, fabric, or nearby objects.\nInspect the room temperature and ventilation. Long production runs in hot environments may increase\noverheating risk.\nClean air filters if they are clogged. Poor airflow can cause repeated overheating warnings.\nDo not ignore overheating alarms. Continuing production under overheating conditions may damage\nelectronic boards, motors, or power components.\nIf the warning appears frequently, report the issue for service inspection.\n10",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_001",
+    "document_number": 1,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "What should be ready before machine installation?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "Before the installation team arrives, the customer must ensure that the installation area is clean, level, and\nfree from unnecessary materials. The floor should be strong enough to support the machine weight and\nallow safe operator movement around the printer .\nThe required power supply, grounding, air compressor connection, ventilation, and network access should\nbe prepared in advance. If the machine requires a stabilizer or UPS, it should be installed before machine\ncommissioning.\nThe customer should also arrange basic consumables such as approved ink, cleaning solution, lint-free\nwipes, sample fabric, and pre-treatment material if applicable.\nAt least one operator and one maintenance person should be available during installation and training.\nInstallation may be delayed if power , air , space, or required consumables are not ready.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_002",
+    "document_number": 2,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "Who should attend machine operator training?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "Operator training should be attended by the person who will handle daily machine operation, print job\nloading, fabric loading, nozzle testing, cleaning, and basic maintenance.\nIt is recommended that at least two people attend training. One person should be the primary operator ,\nand the second person should understand backup operation and maintenance tasks.\nTraining usually covers startup, shutdown, nozzle test, ink filling, software job loading, safety points, print\nquality checks, and daily cleaning. Advanced service-level repairs are not covered in basic operator training.\nOperators should take notes during training and follow the provided checklist during the first few weeks of\nproduction.\n1",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_003",
+    "document_number": 3,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "What is usually covered under machine warranty?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "Machine warranty generally covers manufacturing defects and failures of covered components during the\napproved warranty period. The exact warranty terms depend on the commercial agreement, invoice, and\nservice policy.\nWarranty may not cover damage caused by improper operation, unauthorized modification, use of\nunapproved ink, poor power supply, physical damage, negligence, or lack of maintenance.\nConsumables such as ink, filters, dampers, wiper blades, cleaning solution, and waste ink parts may have\nlimited or no warranty coverage depending on usage.\nThe customer should maintain operation records, maintenance logs, and service reports. Warranty claims\nmay require photographs, error details, usage history, and inspection by authorized service personnel.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_004",
+    "document_number": 4,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "How to raise a service request?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "To raise a service request, the customer should share the machine model, serial number , location, contact\nperson, issue description, error message, and recent activity before the issue occurred.\nClear photos or videos should be shared whenever possible. For print quality issues, include the nozzle test\nresult, sample print image, print settings, fabric type, and ink details.\nThe support team will review the information and may provide remote troubleshooting steps first. If the\nissue cannot be resolved remotely, a service visit may be scheduled.\nCustomers should not dismantle critical parts unless instructed by authorized service personnel.\nUnauthorized repair attempts may increase damage and affect warranty eligibility.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_005",
+    "document_number": 5,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "What information is required for remote support?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "For remote support, the customer should provide a clear description of the issue, machine model, software\nversion, error message, and when the problem started.\nIf the issue is related to printing, the customer should provide photos of the printed output, nozzle test,\nfabric type, ink type, print mode, and recent changes in settings.\nIf the issue is related to software detection or communication, the customer should share screenshots of\nthe software status, cable connection, network settings, and any error logs.\nRemote support is most effective when the operator is available near the machine and can perform\ninstructed checks safely.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_006",
+    "document_number": 6,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "Why is preventive maintenance important?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "Preventive maintenance helps reduce unexpected downtime, print defects, ink blockage, component wear ,\nand emergency service calls.\nDaily cleaning prevents dust, lint, dried ink, and fabric waste from affecting print quality or carriage\nmovement. Weekly inspection helps identify loose cables, air leaks, weak ink flow, and abnormal sounds\nearly.\nMaintenance should not be skipped during low production periods. Idle machines can still develop\nprinthead drying, ink settling, and capping problems.\nA maintenance log should be maintained to record cleaning, ink refilling, nozzle test results, filter changes,\nand service observations. This helps both the customer and service team diagnose repeated issues faster .",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_007",
+    "document_number": 7,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "Why should only approved ink be used?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "Approved ink is tested for compatibility with the machine ink system, printhead, filters, dampers, curing\nconditions, and fabric output requirements.\nUsing unapproved ink may cause nozzle blockage, color inconsistency, sediment formation, weak wash\ndurability, filter clogging, or printhead damage.\nDifferent ink brands should not be mixed in the same tank unless approved by the manufacturer . Even if\ntwo inks appear similar , their chemistry may be different.\nIf a customer wants to change ink type or supplier , the support team should be informed before switching.\nProper flushing and validation may be required before using a new ink system.\n3",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_008",
+    "document_number": 8,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "Which spare parts should be kept in stock?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "Customers running regular production should keep basic consumable and maintenance spares available to\navoid downtime. Recommended items include filters, dampers, wiper blades, capping station parts,\ncleaning solution, lint-free wipes, waste ink tubes, and approved ink.\nFor high-volume production, additional critical parts may be recommended based on machine model and\nusage. These may include sensors, belts, cables, pumps, and pneumatic fittings.\nPrintheads are high-value components and should be stored and handled only as per service guidelines.\nThe exact spare list should be confirmed with the support team based on the machine configuration,\nproduction volume, and service location.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_009",
+    "document_number": 9,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "Should the machine software be updated regularly?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "Software updates may include bug fixes, performance improvements, new print modes, improved machine\ncommunication, or updated safety checks.\nCustomers should not install unofficial software versions or modify machine software files without\napproval. Incorrect software versions may cause communication errors, wrong print settings, or machine\ninstability.\nBefore updating software, backup important profiles, print settings, alignment values, and job\nconfigurations. The support team may request current software version details before recommending an\nupdate.\nAfter software update, perform a test print and verify machine status, profile selection, alignment, and print\nquality before resuming bulk production.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_010",
+    "document_number": 10,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "What site conditions are recommended for stable operation?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "4\nThe machine should be installed in a clean, dry, and dust-controlled area. Excessive dust, fabric lint,\nmoisture, or heat may affect machine reliability and print quality.\nThe room should have sufficient ventilation and stable temperature. Ink, fabric, and machine electronics\nmay behave differently in extreme conditions.\nPower supply should be stable, properly grounded, and protected from sudden fluctuations. Air supply\nshould be clean, dry, and within the required pressure range.\nThe machine should have enough space around it for loading fabric, maintenance access, operator\nmovement, and emergency access.\nGood site conditions reduce downtime and improve output consistency.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_011",
+    "document_number": 11,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "What should the operator check before starting production?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "Before production, the operator should check machine power , air pressure, ink levels, fabric readiness, print\nbed cleanliness, software status, and emergency stop condition.\nA nozzle test should be performed before starting production. If missing nozzles are found, cleaning should\nbe done before printing customer orders.\nThe operator should confirm that the correct design file, print profile, print mode, fabric type, and print\norigin are selected.\nFor repeat jobs, compare the setup with the approved sample and saved settings. For new jobs, a sample\nprint should be approved before bulk printing.\nProduction should not begin if the machine shows active alarms or if the printhead may contact the fabric.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_012",
+    "document_number": 12,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "What should be done at the end of the day?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "At the end of the day, complete all active print jobs and move the carriage to the home or capping position.\nDo not leave the printhead exposed.\nRun the recommended ink circulation or maintenance cycle if required. Clean the printhead surface,\ncapping station, wiper area, print bed, and waste ink area.\nCheck the waste ink bottle and empty it if needed. Record ink usage, maintenance activity, production\nissues, and nozzle test condition.\nShut down the software and machine according to the standard shutdown procedure. Do not disconnect\npower abruptly unless there is an emergency.\nA proper end-of-day routine reduces nozzle drying and startup issues on the next working day.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_013",
+    "document_number": 13,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "What details are needed for a print quality complaint?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "For a print quality complaint, the customer should share the approved sample, current defective print,\nnozzle test result, design file information, fabric type, ink details, print mode, curing method, and\nproduction date.\nThe support team may ask whether the issue appears on all prints or only on specific garments. This helps\nseparate machine issues from fabric, pre-treatment, or handling issues.\nPhotos should be taken under proper lighting. For banding, blur , smudging, or color mismatch, close-up\nimages are useful.\nCustomers should not continue bulk production if the defect repeats. Stop production, keep sample\nevidence, and contact support for guidance.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_014",
+    "document_number": 14,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "What should be done if the machine will remain idle?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "If the machine will remain idle for a short period, ensure that the printhead is capped properly and that the\nrequired circulation cycle is performed.\nFor longer idle periods, follow the manufacturer-recommended storage or shutdown procedure. This may\ninclude cleaning, flushing, capping, circulation scheduling, and environmental precautions.\nThe machine area should remain clean and protected from dust. Ink tanks should be closed properly to\navoid contamination.\nBefore restarting after idle time, inspect ink levels, run circulation, perform a nozzle test, and check print\nquality with a test print.\nImproper idle handling may cause nozzle drying, ink settling, weak flow, or startup failures.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_015",
+    "document_number": 15,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "How should ink and cleaning consumables be stored?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "Ink, cleaning solution, wipes, filters, and other consumables should be stored in a clean and dry area away\nfrom direct sunlight, dust, and extreme temperature.\nInk containers should remain tightly closed when not in use. Before filling ink, check the label, color , batch\ninformation, and expiry date if available.\nDo not store consumables near heat sources, open electrical panels, or contaminated production waste.\nLint-free wipes and cleaning materials should be kept sealed to prevent dust contamination. Dirty cleaning\nmaterial can damage the printhead or introduce particles into the ink system.\nExpired or contaminated consumables should not be used.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_016",
+    "document_number": 16,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "When should an issue be escalated to service personnel?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "An issue should be escalated when basic operator checks do not resolve the problem, when the same error\nrepeats, or when there is risk of machine damage or operator injury.\nExamples requiring escalation include ink leakage near electronics, repeated carriage errors, emergency\nstop faults, burning smell, smoke, electrical issues, printhead collision, and unresolved communication\nerrors.\nOperators should also escalate if they are unsure about a maintenance step. Guesswork or unauthorized\nrepair can increase damage.\nBefore escalation, collect relevant details such as machine status, error message, photos, recent\nmaintenance, and steps already attempted.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_017",
+    "document_number": 17,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "Why should machine logs and maintenance records be maintained?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "7\nLogs help track machine behavior , maintenance history, consumable usage, print quality issues, and\nrepeated errors. Good records allow faster troubleshooting and better service decisions.\nOperators should record daily cleaning, nozzle test results, ink refill dates, waste ink disposal, filter changes,\nsoftware errors, and major production issues.\nFor recurring problems, logs help identify patterns such as problems after idle periods, specific fabric types,\npower fluctuations, or particular print modes.\nService teams may request logs before remote or on-site diagnosis. Missing records can make\ntroubleshooting slower and less accurate.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_018",
+    "document_number": 18,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "What are the customer responsibilities after installation?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "After installation, the customer is responsible for daily operation, cleaning, safe handling, approved\nconsumable usage, site cleanliness, and basic maintenance according to the provided instructions.\nThe customer should ensure that only trained operators use the machine. Operators should not bypass\nalarms, modify settings randomly, or perform unauthorized repairs.\nThe customer must maintain proper power , air supply, ventilation, and environmental conditions.\nAny abnormal sound, smell, leakage, print defect, or alarm should be reported early. Continuing production\ndespite warnings may increase damage and downtime.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_019",
+    "document_number": 19,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "How should repeat orders be handled?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "For repeat orders, use the previously approved design file, print profile, print mode, ink settings, fabric type,\ncuring settings, and sample reference wherever possible.\nBefore starting bulk production, print one sample and compare it with the approved sample. Check\nplacement, color , opacity, sharpness, and curing result.\nIf fabric batch, ink batch, pre-treatment, or curing method has changed, small variation may occur .\nAdjustments should be documented.\nDo not assume that repeat orders will match automatically if production conditions have changed. Maintain\nsaved settings and production notes for consistency.",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  },
+  {
+    "id": "support_020",
+    "document_number": 20,
+    "dataset": "support_faqs",
+    "dataset_name": "Synthetic Dataset 3: Support Documents and FAQs",
+    "category": "Customer Support Knowledge Base",
+    "title": "How to communicate effectively with support team?",
+    "source_type": "synthetic",
+    "source_pdf": "Synthetic Dataset 3- Support Documents and FAQs.pdf",
+    "content": "When contacting support, provide complete and clear information. Mention the machine model, serial\nnumber , location, operator name, contact number , issue description, and urgency.\nFor error messages, share screenshots or exact wording. For print defects, share clear photos of the defect,\nnozzle test, sample print, fabric, and settings.\nExplain what changed recently, such as new ink, new fabric, software update, power issue, maintenance\nactivity, or long idle period.\nAvoid sending only short messages such as “machine not working” or “print problem.” Incomplete\ninformation may delay diagnosis.\nFollow support instructions carefully and confirm the result after each troubleshooting step.\n9",
+    "metadata": {
+      "machine_domain": "textile_digital_printing",
+      "intended_use": "rag_knowledge_base_interview_task",
+      "language": "en"
+    }
+  }
+]
