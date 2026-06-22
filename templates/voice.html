@@ -1,142 +1,258 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
-<title>RDX AI Assistant</title>
+    <title>RDX AI Assistant</title>
 
-<style>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
 
-body{
-    font-family:Arial;
-    margin:40px;
-}
+        .container {
+            max-width: 800px;
+        }
 
-.container{
-    max-width:800px;
-}
+        input {
+            width: 70%;
+            padding: 10px;
+        }
 
-input{
-    width:70%;
-    padding:10px;
-}
+        button {
+            padding: 10px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
 
-button{
-    padding:10px;
-    margin-left:5px;
-}
-
-#answer{
-    margin-top:20px;
-    padding:15px;
-    border:1px solid #ddd;
-}
-
-</style>
+        #answer {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            min-height: 100px;
+        }
+    </style>
 
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-<h1>RDX AI Assistant</h1>
+        <h1>RDX AI Assistant</h1>
 
-<input
-    type="text"
-    id="question"
-    placeholder="Ask your question..."
->
+        <input
+            type="text"
+            id="question"
+            placeholder="Ask your question..."
+        >
 
-<button onclick="askQuestion()">
-    Send
-</button>
+        <button onclick="askQuestion()">
+            Send
+        </button>
 
-<button onclick="startListening()">
-    🎤 Speak
-</button>
+        <button onclick="startListening()">
+            🎤 Speak
+        </button>
 
-<div id="answer"></div>
+        <div id="answer"></div>
 
-</div>
+    </div>
 
-<script>
+    <script>
 
-async function askQuestion(){
+        // -------------------------
+        // Session Memory
+        // -------------------------
+
+        let sessionId =
+            localStorage.getItem(
+                "session_id"
+            );
+
+        if (!sessionId) {
+
+            sessionId =
+                crypto.randomUUID();
+
+            localStorage.setItem(
+                "session_id",
+                sessionId
+            );
+        }
+
+        // -------------------------
+        // Enter Key Support
+        // -------------------------
+
+        document
+            .getElementById("question")
+            .addEventListener(
+                "keypress",
+                function (event) {
+
+                    if (
+                        event.key === "Enter"
+                    ) {
+                        askQuestion();
+                    }
+                }
+            );
+
+        // -------------------------
+        // Ask Question
+        // -------------------------
+
+        async function askQuestion() {
 
     const question =
         document.getElementById(
             "question"
-        ).value;
+        ).value.trim();
+
+    if (!question) return;
+
+    const answerDiv =
+        document.getElementById(
+            "answer"
+        );
+
+    answerDiv.innerHTML =
+        "<b>Answer:</b><br><br>";
 
     const response =
         await fetch(
-            "/ask",
+            "/ask-stream",
             {
-                method:"POST",
-                headers:{
+                method: "POST",
+                headers: {
                     "Content-Type":
                     "application/json"
                 },
-                body:JSON.stringify({
-                    question:question
+                body: JSON.stringify({
+                    question: question,
+                    session_id: sessionId
                 })
             }
         );
 
-    const data =
-        await response.json();
+    const reader =
+        response.body.getReader();
 
-    document.getElementById(
-        "answer"
-    ).innerHTML =
-        "<b>Answer:</b><br><br>" +
-        data.answer;
+    const decoder =
+        new TextDecoder();
 
-    speak(data.answer);
+    let fullAnswer = "";
+
+    while (true) {
+
+        const {
+            done,
+            value
+        } = await reader.read();
+
+        if (done) break;
+
+        const chunk =
+            decoder.decode(value);
+
+        fullAnswer += chunk;
+
+        answerDiv.innerHTML =
+            "<b>Answer:</b><br><br>" +
+            fullAnswer;
+    }
+
+    speak(fullAnswer);
 }
 
-function startListening(){
+        // -------------------------
+        // Voice Input
+        // -------------------------
 
-    const SpeechRecognition =
-        window.SpeechRecognition ||
-        window.webkitSpeechRecognition;
+        function startListening() {
 
-    const recognition =
-        new SpeechRecognition();
+            const SpeechRecognition =
+                window.SpeechRecognition ||
+                window.webkitSpeechRecognition;
 
-    recognition.lang = "en-US";
+            if (!SpeechRecognition) {
 
-    recognition.start();
+                alert(
+                    "Speech Recognition is not supported in this browser."
+                );
 
-    recognition.onresult =
-        function(event){
+                return;
+            }
 
-        const transcript =
-            event.results[0][0]
-            .transcript;
+            const recognition =
+                new SpeechRecognition();
 
-        document.getElementById(
-            "question"
-        ).value =
-            transcript;
+            recognition.lang =
+                "en-US";
 
-        askQuestion();
-    };
-}
+            recognition.interimResults =
+                false;
 
-function speak(text){
+            recognition.maxAlternatives =
+                1;
 
-    const speech =
-        new SpeechSynthesisUtterance(
-            text
-        );
+            recognition.start();
 
-    speechSynthesis.speak(
-        speech
-    );
-}
+            recognition.onresult =
+                function (event) {
 
-</script>
+                    const transcript =
+                        event.results[0][0]
+                            .transcript;
+
+                    document.getElementById(
+                        "question"
+                    ).value =
+                        transcript;
+
+                    askQuestion();
+                };
+
+            recognition.onerror =
+                function (event) {
+
+                    console.error(
+                        event.error
+                    );
+                };
+        }
+
+        // -------------------------
+        // Voice Output
+        // -------------------------
+
+        function speak(text) {
+
+            speechSynthesis.cancel();
+
+            const speech =
+                new SpeechSynthesisUtterance(
+                    text
+                );
+
+            speech.lang =
+                "en-US";
+
+            speech.rate =
+                1;
+
+            speech.pitch =
+                1;
+
+            speechSynthesis.speak(
+                speech
+            );
+        }
+
+    </script>
 
 </body>
+
 </html>

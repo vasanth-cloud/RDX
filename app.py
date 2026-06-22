@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import google.generativeai as genai
 import os
+from fastapi.responses import StreamingResponse
 
 from models.schemas import QuestionRequest
 from services.parser import load_json
@@ -29,6 +30,8 @@ genai.configure(
 model = genai.GenerativeModel(
     "gemini-2.5-flash"
 )
+
+chat_memory = {}
 
 # -----------------------------
 # FastAPI App
@@ -111,14 +114,33 @@ def upload_document():
 # -----------------------------
 # Ask Question
 # -----------------------------
+# -----------------------------
+# Ask Question
+# -----------------------------
 @app.post("/ask")
 def ask_question(request: QuestionRequest):
 
     try:
 
+        # Get chat history
+        history = chat_memory.get(
+            request.session_id,
+            []
+        )
+
+        # Build conversational search query
+        search_query = request.question
+
+        if history:
+            search_query = (
+                "\n".join(history[-4:])
+                + "\nUser: "
+                + request.question
+            )
+
         # Question Embedding
         query_embedding = embedding_model.encode(
-            request.question
+            search_query
         ).tolist()
 
         # Similarity Search
@@ -129,7 +151,6 @@ def ask_question(request: QuestionRequest):
 
         retrieved_docs = results["documents"][0]
 
-        # No Results
         if not retrieved_docs:
 
             return {
@@ -137,19 +158,29 @@ def ask_question(request: QuestionRequest):
                 "sources": []
             }
 
-        # Build Context
         context = "\n\n".join(
             retrieved_docs
         )
 
-        # Prompt
+        conversation_context = "\n".join(
+            history[-10:]
+        )
+
         prompt = f"""
+Previous Conversation:
+{conversation_context}
+
 You are an AI assistant for textile printing machines.
 
 Rules:
 1. Answer ONLY using the provided context.
-2. Do NOT use outside knowledge.
-3. If the answer is not available in the context, reply exactly:
+2. Use previous conversation only to understand references such as:
+   - it
+   - that
+   - this machine
+   - previous topic
+3. Do NOT use outside knowledge.
+4. If the answer is not available in the context, reply exactly:
 "There is not enough information in the uploaded documents."
 
 Context:
@@ -161,14 +192,25 @@ Question:
 Answer:
 """
 
-        # Gemini Response
         response = model.generate_content(
             prompt
         )
 
         answer = response.text.strip()
 
-        # Not Found Case
+        # Save conversation
+        history.append(
+            f"User: {request.question}"
+        )
+
+        history.append(
+            f"Assistant: {answer}"
+        )
+
+        chat_memory[
+            request.session_id
+        ] = history
+
         if "There is not enough information" in answer:
 
             return {
@@ -176,12 +218,12 @@ Answer:
                 "sources": []
             }
 
-        # Sources
         sources = []
 
         for item in results["metadatas"][0]:
 
             if item["source"] not in sources:
+
                 sources.append(
                     item["source"]
                 )
@@ -198,3 +240,114 @@ Answer:
             "sources": [],
             "error": str(e)
         }
+
+@app.post("/ask-stream")
+async def ask_stream(request: QuestionRequest):
+
+    try:
+
+        history = chat_memory.get(
+            request.session_id,
+            []
+        )
+
+        search_query = request.question
+
+        if history:
+            search_query = (
+                "\n".join(history[-4:])
+                + "\nUser: "
+                + request.question
+            )
+
+        query_embedding = embedding_model.encode(
+            search_query
+        ).tolist()
+
+        results = collection.query(
+            query_embeddings=[query_embedding],
+            n_results=3
+        )
+
+        retrieved_docs = results["documents"][0]
+
+        if not retrieved_docs:
+
+            async def no_data():
+                yield "There is not enough information in the uploaded documents."
+
+            return StreamingResponse(
+                no_data(),
+                media_type="text/plain"
+            )
+
+        context = "\n\n".join(
+            retrieved_docs
+        )
+
+        conversation_context = "\n".join(
+            history[-10:]
+        )
+
+        prompt = f"""
+Previous Conversation:
+{conversation_context}
+
+You are an AI assistant for textile printing machines.
+
+Rules:
+1. Answer ONLY using the provided context.
+2. Do NOT use outside knowledge.
+
+Context:
+{context}
+
+Question:
+{request.question}
+
+Answer:
+"""
+
+        async def generate():
+
+            full_answer = ""
+
+            response = model.generate_content(
+                prompt,
+                stream=True
+            )
+
+            for chunk in response:
+
+                if chunk.text:
+
+                    full_answer += chunk.text
+
+                    yield chunk.text
+
+            history.append(
+                f"User: {request.question}"
+            )
+
+            history.append(
+                f"Assistant: {full_answer}"
+            )
+
+            chat_memory[
+                request.session_id
+            ] = history
+
+        return StreamingResponse(
+            generate(),
+            media_type="text/plain"
+        )
+
+    except Exception as e:
+
+        async def error():
+            yield f"Error: {str(e)}"
+
+        return StreamingResponse(
+            error(),
+            media_type="text/plain"
+        )
