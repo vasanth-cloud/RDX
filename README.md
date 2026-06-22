@@ -1,12 +1,10 @@
-# AI Document Question Answering System
+# AI Document Question Answering & Voice Assistant System
 
 ## Overview
 
-This project is a Retrieval-Augmented Generation (RAG) based document question-answering system developed using FastAPI and Python.
+This project is a Retrieval-Augmented Generation (RAG) based Document Question Answering and Voice Assistant System developed using FastAPI and Python.
 
-The system allows users to upload a document dataset, stores document embeddings in ChromaDB, and answers questions based only on the uploaded document content.
-
----
+The system allows users to upload a document dataset, store document embeddings in ChromaDB, and ask questions through either text or voice. Answers are generated using retrieved document context and Google Gemini, ensuring responses are grounded in the uploaded documents.
 
 ## Technologies Used
 
@@ -18,54 +16,88 @@ The system allows users to upload a document dataset, stores document embeddings
 - Pydantic
 - python-dotenv
 - Uvicorn
+- HTML
+- CSS
+- JavaScript
+- Web Speech API
 
 ---
 
-## Architecture
+## System Architecture
 
-Document Upload
+### Document Ingestion Pipeline
 
-JSON Document
-        |
-        V
+```text
+JSON Documents
+      |
+      V
 Document Parsing
-        |
-        V
+      |
+      V
 Generate Embeddings
-        |
-        V
+      |
+      V
 Store in ChromaDB
+```
 
-Question Answering
+### Question Answering Pipeline
 
+```text
 User Question
-        |
-        V
+      |
+      V
 Generate Query Embedding
-        |
-        V
+      |
+      V
 Similarity Search (Top-K)
-        |
-        V
+      |
+      V
 Retrieve Relevant Documents
-        |
-        V
+      |
+      V
 Gemini LLM
-        |
-        V
+      |
+      V
+Generate Answer
+      |
+      V
 Return Answer + Sources
+```
+
+### Voice Assistant Pipeline
+
+```text
+User Voice Input
+      |
+      V
+Speech-to-Text
+      |
+      V
+Question Submission
+      |
+      V
+RAG Pipeline
+      |
+      V
+Answer Generation
+      |
+      V
+Display Response
+      |
+      V
+Text-to-Speech Output
+```
 
 ---
 
 ## Project Structure
 
-```
-
+```text
 RDX/
 │
 ├── app.py
-├── .env
 ├── requirements.txt
+├── .env
 │
 ├── uploads/
 │   └── all_documents.json
@@ -77,158 +109,215 @@ RDX/
 │   ├── embeddings.py
 │   └── vector_store.py
 │
-└── models/
-└── schemas.py
-
+├── models/
+│   └── schemas.py
+│
+└── templates/
+    └── voice.html
 ```
 
 ---
 
 ## Installation
 
+### Clone Repository
+
+```bash
+git clone https://github.com/your-username/your-repository.git
+cd your-repository
+```
+
 ### Create Virtual Environment
 
-Windows
+#### Windows
 
-```
-
+```bash
 python -m venv venv
 venv\Scripts\activate
-
 ```
 
----
+#### Linux / macOS
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
 ### Install Dependencies
 
-```
-
+```bash
 pip install -r requirements.txt
+```
 
+### Configure Environment Variables
+
+Create a `.env` file:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key
 ```
 
 ---
 
-### Create .env File
+## Running the Application
 
-```
-
-GEMINI_API_KEY=your_api_key
-
-```
-
----
-
-## Run the Application
-
-```
-
+```bash
 uvicorn app:app --reload
-
 ```
 
 Server URL:
 
-```
-
+```text
 http://127.0.0.1:8000
-
 ```
 
 Swagger Documentation:
 
+```text
+http://127.0.0.1:8000/docs
 ```
 
-http://127.0.0.1:8000/docs
+Voice Assistant Interface:
 
+```text
+http://127.0.0.1:8000/voice-ui
 ```
 
 ---
 
 ## API Endpoints
 
-### Upload Documents
+### Home Endpoint
 
-POST
+**GET /**
 
-```
-
-/upload
-
-```
-
-Response
+Response:
 
 ```json
 {
-    "status": "success",
-    "message": "Documents uploaded successfully",
-    "total_documents": 50
+  "message": "AI Document QA API Running"
 }
 ```
 
----
+### Upload Documents
+
+**POST /upload**
+
+Response:
+
+```json
+{
+  "status": "success",
+  "message": "Documents uploaded successfully",
+  "total_documents": 50
+}
+```
 
 ### Ask Question
 
-POST
+**POST /ask**
 
-```
-
-/ask
-
-```
-
-Request
+Request:
 
 ```json
 {
-    "question": "How often should the machine be cleaned?"
+  "question": "How often should the machine be cleaned?"
 }
 ```
 
-Response
+Response:
 
 ```json
 {
-    "answer": "The machine should be cleaned daily.",
-    "sources": [
-        "Machine Cleaning Guide"
-    ]
+  "answer": "The machine should be cleaned daily.",
+  "sources": [
+    "Machine Cleaning Guide"
+  ]
 }
 ```
+
+### Voice Assistant UI
+
+**GET /voice-ui**
+
+Provides a browser-based interface supporting:
+
+- Text Questions
+- Voice Questions
+- AI Responses
+- Source References
+- Text-to-Speech Output
 
 ---
 
 ## Features
 
-- Upload document dataset
-- Generate vector embeddings
-- Store embeddings in ChromaDB
-- Semantic similarity search
 - Retrieval-Augmented Generation (RAG)
-- Source document tracking
-- API key protection using .env
-- Swagger API documentation
+- Document Question Answering
+- Semantic Search using Embeddings
+- ChromaDB Vector Storage
+- Google Gemini Integration
+- Source Attribution
+- Browser-Based Chat Interface
+- Voice Input Support
+- Voice Response Support
+- FastAPI REST API
+- Swagger Documentation
+- Environment Variable Security
 
 ---
 
 ## Similarity Search
 
-This project uses:
+The system uses:
 
 - SentenceTransformers for embedding generation
 - ChromaDB for vector storage
 - Dense vector retrieval
 - Top-K semantic similarity search
+- Context-aware answer generation
+
+---
+
+## User Interfaces
+
+### Swagger API
+
+```
+http://127.0.0.1:8000/docs
+```
+
+### Voice Assistant UI
+
+```
+http://127.0.0.1:8000/voice-ui
+```
+
+Supports:
+
+- Chat-based interaction
+- Voice-based interaction
+- AI-generated answers
+- Source document tracking
+- Speech synthesis responses
 
 ---
 
 ## Future Improvements
 
 - PDF Upload Support
-- DOCX Support
+- DOCX Upload Support
 - Multiple Document Upload
 - User Authentication
 - Docker Deployment
 - Hybrid Search (BM25 + Vector Search)
+- Streaming Responses
+- Multi-Language Support
+- Conversation Memory
+- Mobile-Friendly UI
+
+---
+
+## Author
+
+Developed using FastAPI, ChromaDB, SentenceTransformers, and Google Gemini to provide document-based question answering and voice-assisted interactions.
