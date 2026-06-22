@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>RDX AI Assistant</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    margin:40px;
+}
+
+.container{
+    max-width:800px;
+}
+
+input{
+    width:70%;
+    padding:10px;
+}
+
+button{
+    padding:10px;
+    margin-left:5px;
+}
+
+#answer{
+    margin-top:20px;
+    padding:15px;
+    border:1px solid #ddd;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>RDX AI Assistant</h1>
+
+<input
+    type="text"
+    id="question"
+    placeholder="Ask your question..."
+>
+
+<button onclick="askQuestion()">
+    Send
+</button>
+
+<button onclick="startListening()">
+    🎤 Speak
+</button>
+
+<div id="answer"></div>
+
+</div>
+
+<script>
+
+async function askQuestion(){
+
+    const question =
+        document.getElementById(
+            "question"
+        ).value;
+
+    const response =
+        await fetch(
+            "/ask",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":
+                    "application/json"
+                },
+                body:JSON.stringify({
+                    question:question
+                })
+            }
+        );
+
+    const data =
+        await response.json();
+
+    document.getElementById(
+        "answer"
+    ).innerHTML =
+        "<b>Answer:</b><br><br>" +
+        data.answer;
+
+    speak(data.answer);
+}
+
+function startListening(){
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    const recognition =
+        new SpeechRecognition();
+
+    recognition.lang = "en-US";
+
+    recognition.start();
+
+    recognition.onresult =
+        function(event){
+
+        const transcript =
+            event.results[0][0]
+            .transcript;
+
+        document.getElementById(
+            "question"
+        ).value =
+            transcript;
+
+        askQuestion();
+    };
+}
+
+function speak(text){
+
+    const speech =
+        new SpeechSynthesisUtterance(
+            text
+        );
+
+    speechSynthesis.speak(
+        speech
+    );
+}
+
+</script>
+
+</body>
+</html>

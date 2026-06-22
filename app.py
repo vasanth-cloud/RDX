@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
+from fastapi.middleware.cors import CORSMiddleware
+
 from dotenv import load_dotenv
 import google.generativeai as genai
 import os
@@ -36,13 +39,59 @@ app = FastAPI(
 )
 
 # -----------------------------
-# Upload Endpoint
+# CORS
+# -----------------------------
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# -----------------------------
+# Home Endpoint
+# -----------------------------
+@app.get("/")
+def home():
+
+    return {
+        "message": "AI Document QA API Running"
+    }
+
+# -----------------------------
+# Voice UI Endpoint
+# -----------------------------
+@app.get("/voice-ui", response_class=HTMLResponse)
+def voice_ui():
+
+    with open(
+        "templates/voice.html",
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        return file.read()
+# -----------------------------
+# Upload Documents
 # -----------------------------
 @app.post("/upload")
 def upload_document():
 
     try:
-        documents = load_json(r"uploads\all_documents.json")
+
+        documents = load_json(
+            r"uploads\all_documents.json"
+        )
+
+        # Avoid duplicate uploads
+        if collection.count() > 0:
+
+            return {
+                "status": "success",
+                "message": "Documents already uploaded",
+                "total_documents": collection.count()
+            }
 
         store_documents(documents)
 
@@ -53,45 +102,54 @@ def upload_document():
         }
 
     except Exception as e:
+
         return {
             "status": "error",
             "message": str(e)
         }
 
-
 # -----------------------------
-# Ask Endpoint
+# Ask Question
 # -----------------------------
 @app.post("/ask")
 def ask_question(request: QuestionRequest):
 
     try:
 
-        # Generate embedding for question
+        # Question Embedding
         query_embedding = embedding_model.encode(
             request.question
         ).tolist()
 
-        # Search Vector Database
+        # Similarity Search
         results = collection.query(
             query_embeddings=[query_embedding],
             n_results=3
         )
 
-        # Get retrieved documents
         retrieved_docs = results["documents"][0]
 
-        # Build context
-        context = "\n\n".join(retrieved_docs)
+        # No Results
+        if not retrieved_docs:
+
+            return {
+                "answer": "There is not enough information in the uploaded documents.",
+                "sources": []
+            }
+
+        # Build Context
+        context = "\n\n".join(
+            retrieved_docs
+        )
 
         # Prompt
         prompt = f"""
 You are an AI assistant for textile printing machines.
 
 Rules:
-1. Answer ONLY from the provided context.
+1. Answer ONLY using the provided context.
 2. Do NOT use outside knowledge.
-3. If the answer is not available, reply exactly:
+3. If the answer is not available in the context, reply exactly:
 "There is not enough information in the uploaded documents."
 
 Context:
@@ -110,7 +168,7 @@ Answer:
 
         answer = response.text.strip()
 
-        # If no information found
+        # Not Found Case
         if "There is not enough information" in answer:
 
             return {
@@ -118,15 +176,16 @@ Answer:
                 "sources": []
             }
 
-        # Collect source names
+        # Sources
         sources = []
 
         for item in results["metadatas"][0]:
-            sources.append(
-                item["source"]
-            )
 
-        # Return response
+            if item["source"] not in sources:
+                sources.append(
+                    item["source"]
+                )
+
         return {
             "answer": answer,
             "sources": sources
@@ -139,12 +198,3 @@ Answer:
             "sources": [],
             "error": str(e)
         }
-# -----------------------------
-# Health Check
-# -----------------------------
-@app.get("/")
-def home():
-
-    return {
-        "message": "AI Document QA API Running"
-    }
