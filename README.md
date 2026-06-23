@@ -2,39 +2,75 @@
 
 ## Overview
 
-This project is a Retrieval-Augmented Generation (RAG) based Document Question Answering and Voice Assistant System developed using FastAPI and Python.
+This project is a Retrieval-Augmented Generation (RAG) based AI Document Question Answering and Voice Assistant System built using FastAPI, ChromaDB, SentenceTransformers, Google Gemini, and LangGraph.
 
-The system allows users to upload documents, generate vector embeddings, store them in ChromaDB, and ask questions through text or voice. Responses are generated using Google Gemini and are grounded in the uploaded document content.
+The system allows users to upload documents, perform Hybrid Search using BM25 and Vector Search, ask questions through text or voice, and receive context-aware responses grounded in the uploaded documents.
 
-The application also supports conversational memory, enabling follow-up questions within the same chat session.
+The application supports Conversational Memory, Streaming Responses, Multi-Agent Workflows, Agent Monitoring, and Basic RAG Evaluation.
 
 ---
 
-## Features
+# Features
 
-### Document Intelligence
+## Document Intelligence
 
-- Document ingestion from JSON datasets
-- Semantic search using vector embeddings
-- ChromaDB vector storage
-- Context-aware retrieval
-- Source tracking
+- JSON Document Ingestion
+- Document Parsing
+- Semantic Search
+- ChromaDB Vector Storage
+- Source Tracking
 
-### AI Question Answering
+---
+
+## Hybrid Search
+
+Combines:
+
+- BM25 Keyword Search
+- ChromaDB Vector Search
+
+### Benefits
+
+- Better retrieval accuracy
+- Handles exact keyword matches
+- Handles semantic similarity
+- Improved context retrieval
+
+### Workflow
+
+```text
+User Query
+     |
+     +----> BM25 Search
+     |
+     +----> Vector Search
+               |
+               V
+      Combined Results
+```
+
+---
+
+## AI Question Answering
 
 - Retrieval-Augmented Generation (RAG)
-- Gemini-powered answer generation
-- Answers restricted to uploaded document content
-- Context-based response generation
+- Gemini-Powered Answers
+- Context-Aware Responses
+- Source Citation Support
+- Grounded Answer Generation
 
-### Conversational Memory
+---
 
-- Session-based chat memory
-- Follow-up question support
-- Context-aware retrieval using conversation history
-- Browser session persistence using Session ID
+## Conversational Memory
 
-Example:
+Supports:
+
+- Session-Based Chat Memory
+- Follow-Up Questions
+- Context Awareness
+- Browser Session Persistence
+
+### Example
 
 ```text
 User:
@@ -50,53 +86,199 @@ Assistant:
 Understands that "it" refers to machine cleaning.
 ```
 
-### Voice Assistant
+---
 
-- Speech-to-Text input
-- Text-to-Speech responses
-- Voice-based document querying
-- Browser microphone support
+## Voice Assistant
 
-### User Interface
+Supports:
 
-- Chat-based web interface
-- Voice interaction
-- Real-time answer display
-- Session-aware conversations
+- Speech-to-Text
+- Text-to-Speech
+- Voice Questions
+- Voice Responses
+- Browser Microphone Integration
 
 ---
 
-## Technologies Used
+## Streaming Responses
 
-### Backend
+Real-time answer streaming using FastAPI StreamingResponse.
+
+### Workflow
+
+```text
+Gemini Stream
+      |
+      V
+FastAPI StreamingResponse
+      |
+      V
+Browser UI
+```
+
+---
+
+# LangGraph Multi-Agent Workflow
+
+The system uses LangGraph for agent orchestration.
+
+### Workflow
+
+```text
+User Question
+      |
+      V
+Query Agent
+      |
+      V
+Retrieval Agent
+      |
+      V
+Validation Agent
+      |
+      V
+Answer Agent
+      |
+      V
+Final Response
+```
+
+---
+
+## Query Agent
+
+Responsibilities:
+
+- Process User Question
+- Handle Conversation Context
+- Prepare Search Query
+
+---
+
+## Retrieval Agent
+
+Responsibilities:
+
+- Perform Hybrid Search
+- Retrieve Relevant Documents
+- Build Context
+- Track Sources
+
+Uses:
+
+- BM25
+- ChromaDB
+- SentenceTransformers
+
+---
+
+## Validation Agent
+
+Responsibilities:
+
+- Validate Retrieved Documents
+- Check Context Availability
+- Ensure Retrieval Success
+
+---
+
+## Answer Agent
+
+Responsibilities:
+
+- Generate Final Answer
+- Use Gemini LLM
+- Restrict Answers to Context
+- Prevent Unsupported Responses
+
+---
+
+# Agent Monitoring
+
+Tracks execution time of each agent.
+
+### Example Logs
+
+```text
+[QUERY AGENT]
+Time: 0.01s
+
+[RETRIEVAL AGENT]
+Time: 0.22s
+
+[VALIDATION AGENT]
+Time: 0.00s
+
+[ANSWER AGENT]
+Time: 2.64s
+```
+
+### Benefits
+
+- Performance Monitoring
+- Workflow Debugging
+- Production Observability
+- Agent-Level Analysis
+
+---
+
+# Basic RAG Evaluation
+
+Evaluates retrieval and answer generation quality.
+
+### Metrics
+
+- Retrieved Documents Count
+- Context Length
+- Answer Length
+- Processing Status
+
+### Example
+
+```json
+{
+  "retrieved_docs": 5,
+  "context_length": 3646,
+  "answer_length": 110,
+  "status": "success"
+}
+```
+
+---
+
+# Technologies Used
+
+## Backend
 
 - Python
 - FastAPI
 - Uvicorn
 - Pydantic
 
-### AI & RAG
+## AI & RAG
 
 - Google Gemini
 - SentenceTransformers
 - ChromaDB
+- BM25
+- LangGraph
 
-### Frontend
+## Frontend
 
 - HTML
 - CSS
 - JavaScript
 - Web Speech API
 
-### Environment Management
+## Environment Management
 
 - python-dotenv
 
 ---
 
-## Architecture
+# Architecture
 
-### Document Ingestion Pipeline
+## Document Ingestion Pipeline
 
 ```text
 JSON Documents
@@ -111,37 +293,50 @@ Generate Embeddings
 Store in ChromaDB
 ```
 
-### Conversational RAG Pipeline
+---
+
+## Hybrid Retrieval Pipeline
+
+```text
+User Question
+      |
+      +----> BM25 Search
+      |
+      +----> Vector Search
+      |
+      V
+Merged Results
+      |
+      V
+Context Construction
+```
+
+---
+
+## Multi-Agent RAG Pipeline
 
 ```text
 User Question
       |
       V
-Session Memory
+Query Agent
       |
       V
-Conversation-Aware Query
+Retrieval Agent
       |
       V
-Embedding Generation
+Validation Agent
       |
       V
-ChromaDB Retrieval
+Answer Agent
       |
       V
-Context Construction
-      |
-      V
-Gemini LLM
-      |
-      V
-Answer Generation
-      |
-      V
-Memory Update
+Gemini Response
 ```
 
-### Voice Assistant Pipeline
+---
+
+## Voice Assistant Pipeline
 
 ```text
 Voice Input
@@ -150,13 +345,10 @@ Voice Input
 Speech-to-Text
       |
       V
-Question Processing
+Hybrid RAG
       |
       V
-Conversational RAG
-      |
-      V
-Answer Generation
+Gemini
       |
       V
 Text-to-Speech
@@ -164,7 +356,7 @@ Text-to-Speech
 
 ---
 
-## Project Structure
+# Project Structure
 
 ```text
 RDX/
@@ -181,7 +373,18 @@ RDX/
 ├── services/
 │   ├── parser.py
 │   ├── embeddings.py
-│   └── vector_store.py
+│   ├── vector_store.py
+│   ├── bm25_store.py
+│   ├── hybrid_search.py
+│   └── rag_evaluator.py
+│
+├── agents/
+│   ├── state.py
+│   ├── graph.py
+│   ├── query_agent.py
+│   ├── retrieval_agent.py
+│   ├── validation_agent.py
+│   └── answer_agent.py
 │
 ├── models/
 │   └── schemas.py
@@ -192,9 +395,9 @@ RDX/
 
 ---
 
-## Installation
+# Installation
 
-### Clone Repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/your-username/your-repository.git
@@ -203,16 +406,16 @@ cd your-repository
 
 ---
 
-### Create Virtual Environment
+## Create Virtual Environment
 
-#### Windows
+### Windows
 
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
-#### Linux / macOS
+### Linux / macOS
 
 ```bash
 python3 -m venv venv
@@ -221,7 +424,7 @@ source venv/bin/activate
 
 ---
 
-### Install Dependencies
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -229,7 +432,7 @@ pip install -r requirements.txt
 
 ---
 
-### Configure Environment Variables
+## Configure Environment Variables
 
 Create a `.env` file:
 
@@ -239,7 +442,7 @@ GEMINI_API_KEY=your_gemini_api_key
 
 ---
 
-## Running the Application
+# Running the Application
 
 ```bash
 uvicorn app:app --reload
@@ -265,43 +468,25 @@ http://127.0.0.1:8000/voice-ui
 
 ---
 
-## API Endpoints
+# API Endpoints
 
-### Home
+## Home
 
 ```http
 GET /
 ```
 
-Response:
-
-```json
-{
-  "message": "AI Document QA API Running"
-}
-```
-
 ---
 
-### Upload Documents
+## Upload Documents
 
 ```http
 POST /upload
 ```
 
-Response:
-
-```json
-{
-  "status": "success",
-  "message": "Documents uploaded successfully",
-  "total_documents": 50
-}
-```
-
 ---
 
-### Ask Question
+## Ask Question
 
 ```http
 POST /ask
@@ -316,97 +501,77 @@ Request:
 }
 ```
 
-Response:
+---
 
-```json
-{
-  "answer": "The machine should be cleaned daily.",
-  "sources": [
-    "Machine Cleaning Guide"
-  ]
-}
+## Streaming Question Answering
+
+```http
+POST /ask-stream
 ```
+
+Features:
+
+- Streaming Responses
+- LangGraph Workflow
+- Hybrid Search
+- Conversational Memory
 
 ---
 
-### Voice Assistant Interface
+## Voice Assistant Interface
 
 ```http
 GET /voice-ui
 ```
 
-Features:
+Supports:
 
-- Text Questions
 - Voice Questions
 - Voice Responses
 - Session Memory
-- Context-Aware Follow-up Questions
+- Follow-Up Questions
 
 ---
 
-## Conversational Memory
+# Current Capabilities
 
-The system maintains session-specific memory using browser-generated session IDs.
+✅ ChromaDB Vector Search
 
-Memory is used for:
+✅ BM25 Search
 
-- Follow-up questions
-- Context understanding
-- Conversation continuity
-- Retrieval enhancement
+✅ Hybrid Search
 
-Example:
+✅ Conversational Memory
 
-```text
-Question 1:
-How often should the machine be cleaned?
+✅ Voice Assistant
 
-Question 2:
-What happens if I skip it?
-```
+✅ Streaming Responses
 
-The system understands that "it" refers to machine cleaning.
+✅ LangGraph Multi-Agent Workflow
+
+✅ Agent Monitoring
+
+✅ Basic RAG Evaluation
 
 ---
 
-## Similarity Search
+# Future Improvements
 
-The application uses:
-
-- SentenceTransformers for embedding generation
-- ChromaDB for vector storage
-- Dense vector retrieval
-- Top-K semantic search
-- Conversation-aware retrieval
-
----
-
-## Security
-
-- API keys stored using environment variables
-- No hardcoded credentials
-- CORS support enabled
-
----
-
-## Future Improvements
-
-- Streaming Responses
+- Hallucination Detection Agent
+- Query Rewriter Agent
+- SQLite Persistent Memory
 - PDF Upload Support
 - DOCX Upload Support
 - OCR Support
-- Multi-language Support
-- SQLite Persistent Memory
-- User Authentication
+- Multi-Language Support
+- AgentOps Monitoring
 - Docker Deployment
 - AWS Deployment
-- Hybrid Search (BM25 + Vector Search)
-- LangGraph Multi-Agent Workflow
-- RAG Evaluation Metrics (RAGAS)
+- RAGAS Evaluation
+- User Authentication
 
 ---
 
-## Author
+# Author
 
-Developed using FastAPI, ChromaDB, SentenceTransformers, and Google Gemini to build a Conversational RAG-based Document Question Answering and Voice Assistant System.
+Developed using FastAPI, ChromaDB, BM25, SentenceTransformers, Google Gemini, and LangGraph to build a Hybrid Search Multi-Agent Conversational RAG System with Voice Assistant capabilities.

@@ -1,0 +1,122 @@
+[
+    {
+        "timestamp": "2026-06-23 11:34:28.941606",
+        "agent": "query_agent",
+        "execution_time": 0.0,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:34:29.164200",
+        "agent": "retrieval_agent",
+        "execution_time": 0.22,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:34:29.168664",
+        "agent": "validation_agent",
+        "execution_time": 0.0,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:34:31.816070",
+        "agent": "answer_agent",
+        "execution_time": 2.637,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:38:40.801209",
+        "agent": "query_agent",
+        "execution_time": 0.001,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:38:41.048575",
+        "agent": "retrieval_agent",
+        "execution_time": 0.241,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:38:41.051576",
+        "agent": "validation_agent",
+        "execution_time": 0.0,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:40:27.617002",
+        "agent": "query_agent",
+        "execution_time": 0.001,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:40:27.650154",
+        "agent": "retrieval_agent",
+        "execution_time": 0.028,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:40:27.664246",
+        "agent": "validation_agent",
+        "execution_time": 0.0,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:40:30.116155",
+        "agent": "answer_agent",
+        "execution_time": 2.439,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:41:14.510411",
+        "agent": "answer_agent",
+        "execution_time": 153.443,
+        "status": "failed"
+    },
+    {
+        "timestamp": "2026-06-23 11:41:35.100714",
+        "agent": "query_agent",
+        "execution_time": 0.0,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:41:35.136269",
+        "agent": "retrieval_agent",
+        "execution_time": 0.03,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:41:35.151272",
+        "agent": "validation_agent",
+        "execution_time": 0.0,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:41:35.625003",
+        "agent": "answer_agent",
+        "execution_time": 0.46,
+        "status": "failed"
+    },
+    {
+        "timestamp": "2026-06-23 11:42:01.352064",
+        "agent": "query_agent",
+        "execution_time": 0.003,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:42:01.412147",
+        "agent": "retrieval_agent",
+        "execution_time": 0.055,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:42:01.429680",
+        "agent": "validation_agent",
+        "execution_time": 0.001,
+        "status": "success"
+    },
+    {
+        "timestamp": "2026-06-23 11:42:01.707546",
+        "agent": "answer_agent",
+        "execution_time": 0.261,
+        "status": "failed"
+    }
+]

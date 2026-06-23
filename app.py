@@ -6,9 +6,12 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 import os
 from fastapi.responses import StreamingResponse
-
+from agents.graph import graph
 from models.schemas import QuestionRequest
 from services.parser import load_json
+from services.bm25_store import BM25Store
+from services.hybrid_search import HybridSearch
+from services.rag_evaluator import evaluate_rag
 from services.embeddings import store_documents
 from services.vector_store import (
     collection,
@@ -32,6 +35,25 @@ model = genai.GenerativeModel(
 )
 
 chat_memory = {}
+bm25_store = BM25Store()
+hybrid_search = HybridSearch(bm25_store)
+
+try:
+    documents = load_json(
+        r"uploads\all_documents.json"
+    )
+
+    bm25_store.build(documents)
+
+    print(
+        f"BM25 initialized with {len(documents)} documents"
+    )
+
+except Exception as e:
+
+    print(
+        f"BM25 initialization failed: {e}"
+    )
 
 # -----------------------------
 # FastAPI App
@@ -82,12 +104,13 @@ def voice_ui():
 def upload_document():
 
     try:
-
         documents = load_json(
             r"uploads\all_documents.json"
         )
 
-        # Avoid duplicate uploads
+        # Always build BM25
+        bm25_store.build(documents)
+
         if collection.count() > 0:
 
             return {
@@ -103,7 +126,7 @@ def upload_document():
             "message": "Documents uploaded successfully",
             "total_documents": len(documents)
         }
-
+        
     except Exception as e:
 
         return {
@@ -114,91 +137,97 @@ def upload_document():
 # -----------------------------
 # Ask Question
 # -----------------------------
-# -----------------------------
-# Ask Question
-# -----------------------------
+
 @app.post("/ask")
 def ask_question(request: QuestionRequest):
 
     try:
 
-        # Get chat history
         history = chat_memory.get(
             request.session_id,
             []
         )
 
-        # Build conversational search query
         search_query = request.question
 
         if history:
+
             search_query = (
                 "\n".join(history[-4:])
                 + "\nUser: "
                 + request.question
             )
 
-        # Question Embedding
-        query_embedding = embedding_model.encode(
-            search_query
-        ).tolist()
+        print("\n================================")
+        print("LANGGRAPH WORKFLOW STARTED")
+        print("================================")
 
-        # Similarity Search
-        results = collection.query(
-            query_embeddings=[query_embedding],
-            n_results=3
-        )
-
-        retrieved_docs = results["documents"][0]
-
-        if not retrieved_docs:
-
-            return {
-                "answer": "There is not enough information in the uploaded documents.",
+        result = graph.invoke(
+            {
+                "question": request.question,
+                "search_query": search_query,
+                "retrieved_docs": [],
+                "context": "",
+                "answer": "",
                 "sources": []
             }
-
-        context = "\n\n".join(
-            retrieved_docs
         )
 
-        conversation_context = "\n".join(
-            history[-10:]
-        )
+        answer = result["answer"]
 
-        prompt = f"""
-Previous Conversation:
-{conversation_context}
+        sources = result["sources"]
 
-You are an AI assistant for textile printing machines.
+        print("\n================================")
+        print("LANGGRAPH WORKFLOW COMPLETED")
+        print("================================")
 
-Rules:
-1. Answer ONLY using the provided context.
-2. Use previous conversation only to understand references such as:
-   - it
-   - that
-   - this machine
-   - previous topic
-3. Do NOT use outside knowledge.
-4. If the answer is not available in the context, reply exactly:
-"There is not enough information in the uploaded documents."
+        # -------------------------
+        # RAG EVALUATION
+        # -------------------------
 
-Context:
-{context}
+        try:
 
-Question:
-{request.question}
+            evaluation = evaluate_rag(
+                question=request.question,
+                answer=answer,
+                contexts=[
+                    doc["text"]
+                    for doc in result["retrieved_docs"]
+                ]
+            )
 
-Answer:
-"""
+            print("\n========== RAG EVALUATION ==========")
 
-        response = model.generate_content(
-            prompt
-        )
+            print(
+                f"Retrieved Docs: {evaluation['retrieved_docs']}"
+            )
 
-        answer = response.text.strip()
+            print(
+                f"Context Length: {evaluation['context_length']}"
+            )
 
-        # Save conversation
+            print(
+                f"Answer Length: {evaluation['answer_length']}"
+            )
+
+            print(
+                f"Status: {evaluation['status']}"
+            )
+
+            print("====================================")
+
+        except Exception as eval_error:
+
+            print(
+                f"RAG Evaluation Error: {eval_error}"
+            )
+
+            evaluation = None
+
+        # -------------------------
+        # SAVE MEMORY
+        # -------------------------
+
         history.append(
             f"User: {request.question}"
         )
@@ -211,26 +240,14 @@ Answer:
             request.session_id
         ] = history
 
-        if "There is not enough information" in answer:
-
-            return {
-                "answer": answer,
-                "sources": []
-            }
-
-        sources = []
-
-        for item in results["metadatas"][0]:
-
-            if item["source"] not in sources:
-
-                sources.append(
-                    item["source"]
-                )
+        # -------------------------
+        # RESPONSE
+        # -------------------------
 
         return {
             "answer": answer,
-            "sources": sources
+            "sources": sources,
+            "evaluation": evaluation
         }
 
     except Exception as e:
@@ -254,88 +271,53 @@ async def ask_stream(request: QuestionRequest):
         search_query = request.question
 
         if history:
+
             search_query = (
                 "\n".join(history[-4:])
                 + "\nUser: "
                 + request.question
             )
 
-        query_embedding = embedding_model.encode(
-            search_query
-        ).tolist()
-
-        results = collection.query(
-            query_embeddings=[query_embedding],
-            n_results=3
-        )
-
-        retrieved_docs = results["documents"][0]
-
-        if not retrieved_docs:
-
-            async def no_data():
-                yield "There is not enough information in the uploaded documents."
-
-            return StreamingResponse(
-                no_data(),
-                media_type="text/plain"
-            )
-
-        context = "\n\n".join(
-            retrieved_docs
-        )
-
-        conversation_context = "\n".join(
-            history[-10:]
-        )
-
-        prompt = f"""
-Previous Conversation:
-{conversation_context}
-
-You are an AI assistant for textile printing machines.
-
-Rules:
-1. Answer ONLY using the provided context.
-2. Do NOT use outside knowledge.
-
-Context:
-{context}
-
-Question:
-{request.question}
-
-Answer:
-"""
-
         async def generate():
 
-            full_answer = ""
+            print("\n================================")
+            print("LANGGRAPH STREAM WORKFLOW STARTED")
+            print("================================")
 
-            response = model.generate_content(
-                prompt,
-                stream=True
+            result = graph.invoke(
+                {
+                    "question": request.question,
+                    "search_query": search_query,
+                    "retrieved_docs": [],
+                    "context": "",
+                    "answer": "",
+                    "sources": []
+                }
             )
 
-            for chunk in response:
+            answer = result["answer"]
 
-                if chunk.text:
-
-                    full_answer += chunk.text
-
-                    yield chunk.text
+            print("\n================================")
+            print("LANGGRAPH STREAM WORKFLOW COMPLETED")
+            print("================================")
 
             history.append(
                 f"User: {request.question}"
             )
 
             history.append(
-                f"Assistant: {full_answer}"
+                f"Assistant: {answer}"
             )
 
             chat_memory[
                 request.session_id
             ] = history
+
+            words = answer.split()
+
+            for word in words:
+
+                yield word + " "
 
         return StreamingResponse(
             generate(),
@@ -344,8 +326,11 @@ Answer:
 
     except Exception as e:
 
+        error_message = str(e)
+
         async def error():
-            yield f"Error: {str(e)}"
+
+            yield f"Error: {error_message}"
 
         return StreamingResponse(
             error(),
