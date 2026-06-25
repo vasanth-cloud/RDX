@@ -65,7 +65,7 @@ langgraph-prebuilt==1.1.0
 langgraph-sdk==0.4.2
 langsmith==0.8.15
 libclang==16.0.0
-lxml==4.9.2
+lxml==5.2.2
 Markdown==3.4.3
 markdown-it-py==4.2.0
 MarkupSafe==2.1.3
