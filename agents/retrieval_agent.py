@@ -7,9 +7,7 @@ from services.hybrid_search import HybridSearch
 from services.parser import load_json
 from services.agent_monitor import log_agent
 
-documents = load_json(
-    r"uploads\all_documents.json"
-)
+documents = load_json("uploads/all_documents.json")
 
 bm25_store = BM25Store()
 bm25_store.build(documents)
