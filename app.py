@@ -22,6 +22,7 @@ from services.vector_store import (
 BASE_DIR = Path(__file__).resolve().parent
 DOCUMENTS_FILE = BASE_DIR / "uploads" / "all_documents.json"
 VOICE_TEMPLATE = BASE_DIR / "templates" / "voice.html"
+CHAT_TEMPLATE = BASE_DIR / "templates" / "chat.html"
 
 # -----------------------------
 # Load Environment Variables
@@ -82,8 +83,20 @@ app.add_middleware(
 # -----------------------------
 # Home Endpoint
 # -----------------------------
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def home():
+
+    with open(
+        CHAT_TEMPLATE,
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        return file.read()
+
+
+@app.get("/health")
+def health():
 
     return {
         "message": "AI Document QA API Running"
