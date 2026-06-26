@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import google.generativeai as genai
 import os
+from pathlib import Path
 from fastapi.responses import StreamingResponse
 from agents.graph import graph
 from models.schemas import QuestionRequest
@@ -17,6 +18,10 @@ from services.vector_store import (
     collection,
     embedding_model
 )
+
+BASE_DIR = Path(__file__).resolve().parent
+DOCUMENTS_FILE = BASE_DIR / "uploads" / "all_documents.json"
+VOICE_TEMPLATE = BASE_DIR / "templates" / "voice.html"
 
 # -----------------------------
 # Load Environment Variables
@@ -40,7 +45,7 @@ hybrid_search = HybridSearch(bm25_store)
 
 try:
     documents = load_json(
-        r"uploads\all_documents.json"
+        DOCUMENTS_FILE
     )
 
     bm25_store.build(documents)
@@ -91,7 +96,7 @@ def home():
 def voice_ui():
 
     with open(
-        "templates/voice.html",
+        VOICE_TEMPLATE,
         "r",
         encoding="utf-8"
     ) as file:
@@ -105,7 +110,7 @@ def upload_document():
 
     try:
         documents = load_json(
-            r"uploads\all_documents.json"
+            DOCUMENTS_FILE
         )
 
         # Always build BM25
