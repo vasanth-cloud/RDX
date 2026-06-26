@@ -325,6 +325,11 @@
             color: var(--danger);
         }
 
+        .listening {
+            color: #ffffff;
+            background: #8a5a00;
+        }
+
         @media (max-width: 780px) {
             .app {
                 grid-template-columns: 1fr;
@@ -424,12 +429,24 @@
         const newChatButton = document.getElementById("newChatButton");
         const suggestionButtons = document.querySelectorAll(".suggestion");
 
-        let sessionId = localStorage.getItem("rdx_session_id");
+        let sessionId = getSessionId();
         let isSending = false;
 
-        if (!sessionId) {
-            sessionId = crypto.randomUUID();
-            localStorage.setItem("rdx_session_id", sessionId);
+        function getSessionId() {
+            const existingSessionId = localStorage.getItem("rdx_session_id");
+
+            if (existingSessionId) {
+                return existingSessionId;
+            }
+
+            const newSessionId =
+                window.crypto && window.crypto.randomUUID
+                    ? window.crypto.randomUUID()
+                    : "rdx-" + Date.now() + "-" + Math.random().toString(16).slice(2);
+
+            localStorage.setItem("rdx_session_id", newSessionId);
+
+            return newSessionId;
         }
 
         function scrollToBottom() {
@@ -516,6 +533,10 @@
                     })
                 });
 
+                if (!response.ok) {
+                    throw new Error("Request failed with status " + response.status);
+                }
+
                 const data = await response.json();
 
                 if (data.error) {
@@ -524,10 +545,11 @@
                 } else {
                     assistant.bubble.textContent = data.answer || "No answer returned.";
                     addSources(assistant.content, data.sources);
+                    speakAnswer(data.answer || "");
                 }
             } catch (error) {
                 assistant.bubble.classList.add("error");
-                assistant.bubble.textContent = "Unable to reach the assistant. Please try again.";
+                assistant.bubble.textContent = error.message || "Unable to reach the assistant. Please try again.";
             } finally {
                 isSending = false;
                 sendButton.disabled = false;
@@ -562,11 +584,30 @@
             window.location.reload();
         });
 
+        function showSystemMessage(text) {
+            const assistant = addMessage("assistant", text);
+            assistant.bubble.classList.add("error");
+        }
+
+        function speakAnswer(text) {
+            if (!text || !("speechSynthesis" in window)) {
+                return;
+            }
+
+            speechSynthesis.cancel();
+
+            const speech = new SpeechSynthesisUtterance(text);
+            speech.lang = "en-US";
+            speech.rate = 1;
+            speech.pitch = 1;
+            speechSynthesis.speak(speech);
+        }
+
         voiceButton.addEventListener("click", () => {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
             if (!SpeechRecognition) {
-                alert("Speech recognition is not supported in this browser.");
+                showSystemMessage("Voice input is not supported in this browser. Please use Chrome or Edge.");
                 return;
             }
 
@@ -575,11 +616,25 @@
             recognition.interimResults = false;
             recognition.maxAlternatives = 1;
 
+            recognition.onstart = () => {
+                voiceButton.textContent = "Listening";
+                voiceButton.classList.add("listening");
+            };
+
             recognition.onresult = (event) => {
                 const transcript = event.results[0][0].transcript;
                 input.value = transcript;
                 resizeInput();
                 askQuestion(transcript.trim());
+            };
+
+            recognition.onerror = (event) => {
+                showSystemMessage("Voice input failed: " + event.error + ". Please allow microphone access and use HTTPS.");
+            };
+
+            recognition.onend = () => {
+                voiceButton.textContent = "Mic";
+                voiceButton.classList.remove("listening");
             };
 
             recognition.start();
